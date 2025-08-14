@@ -64,10 +64,6 @@ Este es un proyecto Django en desarrollo que implementa un sistema de gestión i
      ```bash
      env\Scripts\activate
      ```
-   - Linux/Mac:
-     ```bash
-     source env/bin/activate
-     ```
 
 4. **Instalar dependencias**
    ```bash
@@ -117,25 +113,3 @@ Este proyecto se encuentra actualmente en fase de desarrollo inicial. Los módul
 5. Implementar lógica de negocio
 6. Agregar autenticación y autorización
 7. Crear tests unitarios
-
-## Contribución
-
-Para contribuir al proyecto:
-
-1. Fork el repositorio
-2. Crea una rama para tu feature (`git checkout -b feature/nueva-funcionalidad`)
-3. Commit tus cambios (`git commit -am 'Agregar nueva funcionalidad'`)
-4. Push a la rama (`git push origin feature/nueva-funcionalidad`)
-5. Crea un Pull Request
-
-## Licencia
-
-Este proyecto está bajo desarrollo. Los términos de licencia se definirán próximamente.
-
-## Contacto
-
-Para preguntas o soporte, por favor contacta al equipo de desarrollo.
-
----
-
-**Nota**: Este README se actualizará conforme el proyecto evolucione y se implementen nuevas funcionalidades.
