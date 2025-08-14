@@ -1,7 +1,6 @@
 # Sistema de Gestión de Citas y Tickets
 
 ## Descripción
-
 Este es un proyecto Django en desarrollo que implementa un sistema de gestión integral para manejar citas, salas, tickets y estados. El sistema está diseñado para facilitar la administración de recursos y la programación de actividades.
 
 ## Características del Proyecto
