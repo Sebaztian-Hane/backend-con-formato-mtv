@@ -1,0 +1,76 @@
+.container {
+    flex: 1;
+
+    box-sizing: border-box;
+    width: 100%;
+    padding: 25px;
+    border-radius: 20px;
+
+    background-color: #1E1E1E;
+}
+
+.title {
+    margin-bottom: 30px;
+    font-size: clamp(1.5rem, 2.5vw, 2rem);
+    font-weight: bold;
+    color: white;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(160px, 1fr));
+    gap: clamp(10px, 2vw, 20px);
+}
+
+.card {
+    all: unset; /* Elimina estilos por defecto del botón */
+
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+
+    box-sizing: border-box;
+    min-height: 50px; /* Altura mínima consistente */
+    padding: clamp(0.4rem, 2.5vw, 0.7rem);
+    border-radius: 12px;
+
+    font-size: clamp(0.9rem, 2.2vw, 1.25rem);
+    font-weight: 500;
+    color: white;
+
+    background-color: #333333;
+
+    transition: all 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-2px);
+    background-color: #2a2a2a;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card:active {
+    transform: translateY(0);
+}
+
+.card:focus-visible {
+    outline: 2px solid #00c36a;
+    outline-offset: 2px;
+}
+
+.icon {
+    flex-shrink: 0;
+    margin-right: 12px;
+    color: #00c36a;
+}
+
+@media screen and (max-width: 600px) {
+    .grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .card {
+        padding: 0.7rem;
+    }
+}

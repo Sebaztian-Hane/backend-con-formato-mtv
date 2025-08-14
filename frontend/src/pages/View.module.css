@@ -1,0 +1,43 @@
+.Container {
+  overflow: hidden; /* Evita el scroll general */
+  display: flex;
+  height: 100vh; /* Ocupa toda la altura */
+}
+
+.SideBar {
+  /* No necesita height: 100vh porque el contenedor ya tiene altura definida */
+  overflow-y: auto; /* Por si acaso el contenido del sidebar es más largo */
+  flex: 0.14;
+  background-color: #1e1e1e;
+}
+
+
+.Content {
+  overflow-y: auto; /* Permite scroll solo en el área de contenido */
+  display: flex;
+  flex: 0.86;
+  flex-direction: column;
+}
+
+.Header {
+  z-index: 10;
+
+  display: flex;
+  flex: 0 0 70px; /* Altura fija (no flexible) */
+  align-items: center;
+
+  padding: 0 20px;
+
+  background-color: #1f1f1f;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.Outlet {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+
+  background-color: #121212;
+  /* Puede crecer y hacer que .Content tenga scroll */
+}

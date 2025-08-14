@@ -1,0 +1,32 @@
+html,body,#root{
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+/* Personalización del scrollbar - Tema negro/verde */
+::-webkit-scrollbar {
+  width: 12px;               
+  height: 6px;              
+}
+
+::-webkit-scrollbar-track {
+  border-radius: 10px;
+  background: #2a2a2a;       
+}
+
+::-webkit-scrollbar-thumb {
+  border: 3px solid #2a2a2a; 
+  border-radius: 10px;
+  background: #4CAF50;       
+}
+
+::-webkit-scrollbar-thumb:hover {
+  cursor: pointer;
+  background: #66BB6A;      
+}
+
+/* Para Firefox */
+* {
+  scrollbar-color: #4CAF50 #2a2a2a;
+  scrollbar-width: thin;
+}

@@ -1,0 +1,28 @@
+.container {
+  box-sizing: border-box;
+  padding: 20px 30px;
+  color: white;
+}
+
+.sections {
+  display: flex;
+
+  /* Asegura que los hijos se adapten en pantallas pequeñas */
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: space-between;
+
+  margin-top: 25px;
+}
+
+/* Diseño adaptativo para pantallas pequeñas */
+@media (max-width: 768px) {
+  .sections {
+    flex-direction: column; /* Cambia de fila a columna */
+    gap: 20px;
+  }
+  .container {
+    padding: 20px 15px;
+  }
+}

@@ -1,0 +1,45 @@
+.container {
+  max-width: 550px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Espaciado entre los campos del formulario usando selectores estándar */
+.container .ant-form-item {
+  margin-bottom: 22px !important;
+}
+
+/* Espaciado extra para el título */
+.container h2 {
+  margin-bottom: 28px !important;
+}
+
+/* Espacio extra entre Opciones de Pago y Método de Pago */
+.container .ant-form-item-label > label[for='payment_type_id'] {
+  display: block;
+  margin-bottom: 8px;
+}
+
+/* Espacio extra entre Opciones de Pago (con input) y Método de Pago */
+.container .ant-form-item-label > label[for='payment_method_id'] {
+  margin-top: 32px !important;
+}
+
+/* Alternativa: margen al form-item completo si el anterior no es suficiente */
+.container .ant-form-item:has(> .ant-form-item-label > label[for='payment_method_id']) {
+  margin-top: 32px !important;
+}
+
+/* Clase personalizada para margen extra entre bloques */
+.metodoPagoSpacing {
+  margin-top: 96px !important;
+}
+
+.hide-price-input input[type="number"],
+.hide-price-input .ant-input-number {
+  display: none !important;
+}
+
+.hide-payment-field {
+  display: none !important;
+}

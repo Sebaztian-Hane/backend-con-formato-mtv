@@ -1,0 +1,125 @@
+/* components/Form/FormGenerator.module.css */
+
+.formContainer {
+  max-width: 850px;
+  margin: 0 auto;
+  margin-top: 10px;
+  padding: 24px;
+  border-radius: 12px;
+
+  color: white;
+
+  background-color: #1e1e1e;
+}
+
+/* Título más compacto */
+.title {
+  margin-top: 10px;
+  font-size: 26px;
+  font-weight: bold;
+  color: white;
+}
+
+/* Etiquetas */
+.label {
+  font-size: 0.95rem;
+  color: white;
+}
+
+/* Espaciado entre campos más compacto */
+.formItem {
+  margin: 12px 0;
+}
+
+/* Grupo de botones */
+.buttonGroup {
+  margin-top: 16px;
+  margin-bottom: 10px;
+}
+
+/* Botones alineados a la derecha */
+.buttonWrapper {
+  display: flex;
+  justify-content: flex-end;
+}
+
+/* Estilo de botón Cancelar */
+.buttonCancel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  height: 36px;
+  margin-right: 10px;
+  padding: 0 16px;
+  border: none;
+
+  font-size: 0.9rem;
+  line-height: 1;
+  color: white;
+
+  background-color: #1677ff;
+}
+
+/* Estilo de botón Enviar */
+.buttonSubmit {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  height: 36px;
+  padding: 0 16px;
+  border: none;
+
+  font-size: 0.9rem;
+  line-height: 1;
+  color: white;
+
+  background-color: #00b96b;
+}
+
+/* Inputs y selects más compactos */
+input,
+select,
+textarea,
+.ant-input,
+.ant-select,
+.ant-picker {
+  height: 36px;
+  padding: 4px 10px;
+  font-size: 0.95rem;
+  line-height: 1.2;
+}
+
+/* Responsive: aún más compacto en móviles */
+@media (max-width: 480px) {
+  .formContainer {
+    padding: 16px;
+  }
+
+  .title {
+    margin-bottom: 0.5rem;
+    font-size: 1.25rem;
+  }
+
+  .formItem {
+    margin: 8px 0;
+  }
+
+  input,
+  select,
+  textarea,
+  .ant-input,
+  .ant-select,
+  .ant-picker {
+    height: 32px;
+    font-size: 0.85rem;
+  }
+
+  .buttonCancel,
+  .buttonSubmit {
+    height: 32px;
+    padding: 0 12px;
+    font-size: 0.8rem;
+  }
+}

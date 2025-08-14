@@ -1,0 +1,133 @@
+.statusEnabled {
+  display: inline-block;
+
+  padding: 4px 12px;
+  border-radius: 16px;
+
+  font-size: 12px;
+  font-weight: 500;
+  color: white;
+
+  background-color: rgba(20, 245, 140, 0.23);
+}
+
+.statusDisabled {
+  display: inline-block;
+
+  padding: 4px 12px;
+  border-radius: 16px;
+
+  font-size: 12px;
+  font-weight: 500;
+  color: white;
+
+  background-color: rgba(255, 77, 79, 0.23);
+}
+
+/* Botones - Estilos base */
+.editButton {
+  border: none !important;
+  border-radius: 6px !important;
+
+  font-weight: 500 !important;
+  color: #fff !important;
+
+  background-color: #0066FF !important;
+}
+
+.deactivateButton {
+  border: none !important;
+  border-radius: 6px !important;
+
+  font-weight: 500 !important;
+  color: #fff !important;
+
+  background-color: #FFAA00 !important;
+}
+
+.deleteButton {
+  border: none !important;
+  border-radius: 6px !important;
+
+  font-weight: 500 !important;
+  color: #fff !important;
+
+  background-color: #FF3333 !important;
+}
+
+/* Botones - Hover */
+.editButton:hover {
+  color: #fff !important;
+  background-color: #0052CC !important;
+}
+
+.deactivateButton:hover {
+  color: #fff !important;
+  background-color: #E69500 !important;
+}
+
+.deleteButton:hover {
+  color: #fff !important;
+  background-color: #E61A1A !important;
+}
+
+.addButton {
+  height: 36px !important;
+  padding: 4px 16px !important;
+  border-color: #4CAF50 !important;
+  border-radius: 6px !important;
+
+  font-weight: 500 !important;
+  color: #fff !important;
+
+  background-color: #4CAF50 !important;
+}
+
+.addButton:hover {
+  border-color: #3d8b40 !important;
+  color: #fff !important;
+  background-color: #3d8b40 !important;
+}
+
+/* Layout */
+.container {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 24px !important;
+  justify-content: center !important;
+
+  max-width: calc(100% - 200px) !important;
+  height: 100% !important;
+  margin: 0 auto !important;
+  padding-top: 20px !important;
+}
+
+.sectionHeader {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  margin-bottom: 16px !important;
+}
+
+.sectionTitle {
+  margin: 0 !important;
+  font-size: 20px !important;
+  font-weight: 600 !important;
+}
+
+/* Formularios */
+.inputField {
+  border-radius: 6px !important;
+}
+
+.statusSwitch {
+  width: 110px !important;
+}
+
+/* Sobrescribir estilos de Ant Design */
+.ant-btn:not(.ant-btn-link):hover, 
+.ant-btn:not(.ant-btn-link):focus {
+  border-color: transparent !important;
+  color: #fff !important;
+  background: inherit !important;
+}

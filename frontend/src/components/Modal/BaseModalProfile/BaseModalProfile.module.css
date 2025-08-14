@@ -1,0 +1,208 @@
+
+.modalContainer {
+  overflow: hidden;
+  border-radius: 16px !important;
+  background: linear-gradient(145deg, #2a2a2a 0%, #1e1e1e 100%) !important;
+}
+
+.modalHeader {
+  position: relative;
+
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+
+  padding: 32px 32px 0;
+}
+
+.backButton {
+  position: absolute;
+  z-index: 1;
+  top: 24px;
+  left: 24px;
+
+  width: 40px;
+  height: 40px;
+  border: none !important;
+  border-radius: 8px !important;
+
+  color: #b0b0b0 !important;
+
+  background: transparent !important;
+
+  transition: all 0.3s ease;
+}
+
+.backButton:hover {
+  color: white !important;
+  background: rgba(255, 255, 255, 0.08) !important;
+}
+
+.modalLogoContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  margin-bottom: 32px;
+}
+
+.modalLogo {
+  width: 64px;
+  height: 64px;
+  object-fit: contain;
+}
+
+/* Contenido principal del modal */
+.modalContent {
+  padding: 0 40px 40px;
+  text-align: center;
+}
+
+.modalTitle {
+  margin: 0 0 20px;
+
+  font-size: 24px;
+  font-weight: 700;
+  color: white;
+  letter-spacing: -0.02em;
+}
+
+.modalDescription {
+  max-width: 400px;
+  margin: 0 auto 30px;
+
+  font-size: 16px;
+  line-height: 1.6;
+  color: #b0b0b0;
+}
+
+/* Formularios dentro del modal */
+.modalForm {
+  margin-bottom: 32px;
+}
+
+.modalInput {
+  height: 52px !important;
+  border: none !important;
+  border-radius: 12px !important;
+
+  font-size: 16px !important;
+  color: rgb(255, 255, 255) !important;
+
+  background-color: #333 !important;
+}
+
+.modalInput:hover,
+.modalInput:focus {
+  border-color: #4CAF50 !important;
+  box-shadow: 0 0 0 2px rgba(76, 175, 80, 0.2) !important;
+}
+
+.modalSubmitButton {
+  height: 52px !important;
+  margin-bottom: 24px !important;
+  border: none !important;
+  border-radius: 12px !important;
+
+  font-size: 16px !important;
+  font-weight: 600 !important;
+  color: white !important;
+
+  background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%) !important;
+  box-shadow: 0 4px 16px rgba(76, 175, 80, 0.3) !important;
+
+  transition: all 0.3s ease !important;
+}
+
+.modalSubmitButton:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 6px 20px rgba(76, 175, 80, 0.4) !important;
+}
+.codeDescription {
+  margin-bottom: 30px;
+}
+
+.emailText {
+  margin: 8px 0 0;
+  font-size: 16px;
+  font-weight: 600;
+  color: #4CAF50;
+}
+
+.otpContainer {
+  margin-bottom: 40px;
+}
+
+.otpInput {
+  gap: 10px;
+  justify-content: center;
+}
+
+.otpSingleInput {
+  width: 46px !important;
+  height: 56px !important;
+  border: 2px solid #4CAF50 !important;
+  border-radius: 8px !important;
+
+  font-size: 20px !important;
+  font-weight: 600 !important;
+  color: white !important;
+
+  background-color: #2a2a2a !important;
+}
+
+/* Footer del modal */
+.modalFooter {
+  padding-top: 16px;
+  border-top: 1px solid #333;
+}
+
+.footerText {
+  margin: 0 0 12px;
+  font-size: 14px;
+  color: #b0b0b0;
+}
+
+.footerActions {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+}
+
+.resendButton {
+  height: auto !important;
+  padding: 0 !important;
+
+  font-size: 14px !important;
+  color: #4CAF50 !important;
+  text-decoration: underline !important;
+}
+
+.resendButton:hover {
+  color: #3d8b40 !important;
+}
+
+.ant-form-item-explain-error {
+  margin-top: 4px;
+  font-size: 12px;
+  color: #ff4d4f;
+}
+
+.ant-form-item-has-error .modalInput {
+  border-color: #ff4d4f !important;
+}
+
+@media (max-width: 768px) {
+  .modalContent {
+    padding: 0 24px 24px;
+  }
+
+  .modalTitle {
+    font-size: 20px;
+  }
+
+  .modalDescription {
+    font-size: 14px;
+  }
+}

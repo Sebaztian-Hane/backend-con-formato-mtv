@@ -1,0 +1,716 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+/* === Variables CSS para consistencia === */
+:root {
+  --primary-green: #1CB54A;
+  --primary-green-hover: #1B7B46;
+  --primary-green-light: rgba(28, 181, 74, 0.1);
+  --primary-green-medium: rgba(28, 181, 74, 0.2);
+  
+  --bg-primary: #1E1E1E;
+  --bg-secondary: #252525;
+  --bg-tertiary: #2C2C2C;
+  --bg-quaternary: #333333;
+  
+  --text-primary: #FFFFFF;
+  --text-secondary: #E5E5E7;
+  --text-tertiary: #B4B4B8;
+  --text-quaternary: #8E8E93;
+  
+  --border-primary: #2a2a2a;
+  --border-secondary: #494949;
+  
+  --shadow-soft: 0 4px 24px rgba(0, 0, 0, 0.2);
+  --shadow-medium: 0 8px 32px rgba(0, 0, 0, 0.3);
+  --shadow-strong: 0 16px 64px rgba(0, 0, 0, 0.4);
+  --shadow-glow: 0 0 20px rgba(28, 181, 74, 0.3);
+  
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  
+  --transition-fast: 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-normal: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* === Estilos Globales para react-big-calendar === */
+.rbc-calendar {
+  overflow: hidden;
+
+  height: 100%;
+  border: 1px solid var(--border-primary);
+  border-radius: var(--radius-lg);
+
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+
+  background: var(--bg-primary);
+  backdrop-filter: blur(20px);
+  box-shadow: var(--shadow-strong);
+}
+
+/* === Estilos Globales para react-big-calendar === */
+.rbc-calendar {
+  overflow: hidden; 
+
+  height: 100%;
+  border: 1px solid var(--border-primary);
+  border-radius: var(--radius-lg); 
+
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; 
+
+  background: var(--bg-primary);
+  backdrop-filter: blur(20px);
+  box-shadow: var(--shadow-strong);
+}
+
+/* === Barra superior del calendario === */
+.rbc-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between; 
+
+  margin-bottom: 24px;
+  padding: 20px 24px;
+  border: 1px solid var(--border-primary);
+  border-radius: var(--radius-md); 
+
+  background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-tertiary) 100%);
+  backdrop-filter: blur(10px);
+}
+
+.rbc-toolbar-label {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  letter-spacing: -0.02em; 
+
+  background: linear-gradient(135deg, var(--primary-green), #00E693);
+  -webkit-background-clip: text;
+  background-clip: text; 
+
+  -webkit-text-fill-color: transparent;
+}
+
+.rbc-btn-group {
+  display: flex;
+  gap: 6px; 
+
+  padding: 4px;
+  border: 1px solid var(--border-secondary);
+  border-radius: var(--radius-md); 
+
+  background: var(--bg-quaternary);
+}
+
+.rbc-toolbar button {
+  cursor: pointer; 
+
+  position: relative; 
+
+  overflow: hidden; 
+
+  padding: 10px 20px;
+  border: none !important;
+  border-radius: var(--radius-sm); 
+
+  font-family: 'Inter', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--text-tertiary) !important; 
+
+  background: transparent !important; 
+
+  transition: all var(--transition-normal);
+}
+
+.rbc-toolbar button::before {
+  content: ''; 
+
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0; 
+
+  opacity: 0;
+  background: linear-gradient(135deg, var(--primary-green), var(--primary-green-hover)); 
+
+  transition: opacity var(--transition-normal);
+}
+
+/* Estilos para hover */
+.rbc-toolbar button:hover {
+  transform: translateY(-1px);
+  color: var(--text-primary) !important;
+  box-shadow: var(--shadow-glow);
+}
+
+.rbc-toolbar button:hover::before {
+  opacity: 1;
+}
+
+/* === ESTILOS PARA BOTONES === */
+.rbc-toolbar button.rbc-active,
+.rbc-toolbar button[aria-pressed="true"] {
+  transform: translateY(-1px);
+  font-weight: 600;
+  color: var(--text-primary) !important;
+  box-shadow: var(--shadow-glow);
+}
+
+.rbc-toolbar button.rbc-active::before,
+.rbc-toolbar button[aria-pressed="true"]::before {
+  opacity: 1;
+}
+
+/* Estilos adicionales para asegurar que el botón activo se mantenga resaltado */
+.rbc-toolbar button.rbc-active:not(:hover),
+.rbc-toolbar button[aria-pressed="true"]:not(:hover) {
+  background: linear-gradient(135deg, var(--primary-green), var(--primary-green-hover)) !important;
+}
+
+/* Si react-big-calendar usa clases específicas para cada vista */
+.rbc-toolbar .rbc-btn-group button[class*="month"].rbc-active,
+.rbc-toolbar .rbc-btn-group button[class*="week"].rbc-active,
+.rbc-toolbar .rbc-btn-group button[class*="day"].rbc-active,
+.rbc-toolbar .rbc-btn-group button[class*="agenda"].rbc-active {
+  transform: translateY(-1px);
+
+  font-weight: 600;
+  color: var(--text-primary) !important;
+
+  background: linear-gradient(135deg, var(--primary-green), var(--primary-green-hover)) !important;
+  box-shadow: var(--shadow-glow);
+}
+
+.rbc-toolbar .rbc-btn-group > button:first-child.rbc-active, 
+.rbc-toolbar .rbc-btn-group > button:nth-child(2).rbc-active, 
+.rbc-toolbar .rbc-btn-group > button:nth-child(3).rbc-active, 
+.rbc-toolbar .rbc-btn-group > button:last-child.rbc-active { 
+  transform: translateY(-1px);
+
+  font-weight: 600;
+  color: var(--text-primary) !important;
+
+  background: linear-gradient(135deg, var(--primary-green), var(--primary-green-hover)) !important;
+  box-shadow: var(--shadow-glow);
+}
+
+/* === Cabeceras de días === */
+.rbc-header {
+  position: relative;
+
+  padding: 16px 0;
+  border-bottom: 1px solid var(--border-primary);
+
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+
+  background: var(--bg-secondary);
+}
+
+.rbc-header::after {
+  content: '';
+
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+
+  width: 30px;
+  height: 2px;
+
+  background: linear-gradient(90deg, transparent, var(--primary-green), transparent);
+}
+
+/* === Días fuera del mes actual === */
+.rbc-off-range-bg {
+  opacity: 0.3;
+  background-color: var(--bg-tertiary) !important;
+}
+
+/* === Vistas de mes y tiempo === */
+.rbc-month-view,
+.rbc-time-view {
+  overflow: hidden;
+  border: 1px solid var(--border-primary);
+  border-radius: var(--radius-md);
+  background: var(--bg-primary);
+}
+
+/* === Bordes de celdas === */
+.rbc-day-bg + .rbc-day-bg {
+  border-left: 1px solid var(--border-primary);
+}
+
+.rbc-month-row + .rbc-month-row {
+  border-top: 1px solid var(--border-primary);
+}
+
+/* === Eventos === */
+.rbc-event,
+.pending-event,
+.confirmed-event {
+  position: relative;
+
+  overflow: hidden;
+
+  padding: 6px 12px;
+  border: none !important;
+  border-radius: var(--radius-sm);
+
+  font-size: 0.85em;
+  font-weight: bold;
+  color: #fff !important;
+
+  background: #4CAF50 !important;
+  box-shadow: var(--shadow-soft);
+
+  transition: all var(--transition-normal);
+}
+
+.rbc-event::before,
+.rbc-event-content {
+  position: relative;
+  z-index: 1;
+  font-weight: 500;
+}
+
+/* === Día actual resaltado === */
+.rbc-today {
+  position: relative;
+  background: var(--primary-green-light);
+}
+
+.rbc-today::before {
+  pointer-events: none;
+  content: '';
+
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+
+  background: linear-gradient(135deg, var(--primary-green-light), transparent);
+}
+
+/* === Números de los días === */
+.rbc-date-cell {
+  margin: 2px;
+  padding: 12px;
+  border-radius: var(--radius-sm);
+
+  font-weight: 500;
+  color: var(--text-primary);
+
+  transition: all var(--transition-fast);
+}
+
+.rbc-date-cell:hover {
+  transform: scale(1.05);
+  color: var(--primary-green);
+  background: var(--primary-green-light);
+}
+
+/* === Hover sobre días del mes === */
+.rbc-month-view .rbc-month-row .rbc-row-bg .rbc-day-bg:hover {
+  background: var(--primary-green-light);
+  transition: background var(--transition-fast);
+}
+
+/* === Vista Agenda === */
+.rbc-agenda-view {
+  padding: 32px;
+  border: 1px solid var(--border-primary);
+  border-radius: var(--radius-xl);
+
+  font-family: 'Inter', sans-serif;
+  color: var(--text-primary);
+
+  background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+  box-shadow: var(--shadow-strong);
+
+  animation: slideIn 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@keyframes slideIn {
+  from { 
+    transform: translateY(20px) scale(0.98); 
+    opacity: 0; 
+  }
+  to { 
+    transform: translateY(0) scale(1); 
+    opacity: 1; 
+  }
+}
+
+/* === Tabla Agenda === */
+.rbc-agenda-table {
+  border-spacing: 0 8px;
+  border-collapse: separate;
+  width: 100%;
+}
+
+.rbc-agenda-table thead {
+  background: transparent;
+}
+
+.rbc-agenda-table th {
+  position: relative;
+
+  padding: 20px 24px;
+  border: none;
+  border-bottom: 2px solid var(--primary-green);
+
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--primary-green);
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+
+  background: var(--bg-tertiary);
+}
+
+.rbc-agenda-table th:first-child {
+  border-radius: var(--radius-md) 0 0 var(--radius-md);
+}
+
+.rbc-agenda-table th:last-child {
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+}
+
+.rbc-agenda-table td {
+  position: relative;
+
+  padding: 20px 24px;
+  border: 1px solid var(--border-primary);
+
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+
+  background: var(--bg-tertiary);
+  box-shadow: var(--shadow-soft);
+
+  transition: all var(--transition-normal);
+}
+
+.rbc-agenda-table tr:hover td {
+  transform: translateY(-2px);
+  background: var(--bg-quaternary);
+  box-shadow: var(--shadow-medium);
+}
+
+.rbc-agenda-table tr td:first-child {
+  border-radius: var(--radius-md) 0 0 var(--radius-md);
+}
+
+.rbc-agenda-table tr td:last-child {
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+}
+
+/* === Columnas específicas === */
+.rbc-agenda-date-cell {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--primary-green);
+  white-space: nowrap;
+}
+
+.rbc-agenda-time-cell {
+  font-family: 'SF Mono', 'Monaco', monospace;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--text-tertiary);
+}
+
+.rbc-agenda-event-cell {
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.5;
+  color: var(--text-primary);
+}
+
+/* === Vista Semana/Día === */
+.rbc-time-header {
+  border-bottom: 1px solid var(--border-primary);
+  color: var(--text-primary);
+  background: var(--bg-secondary);
+}
+
+.rbc-time-content {
+  border-top: 1px solid var(--border-primary);
+  background: var(--bg-primary);
+}
+
+.rbc-timeslot-group {
+  border-bottom: 1px solid var(--border-primary);
+}
+
+.rbc-time-gutter {
+  border-right: 1px solid var(--border-primary);
+
+  font-family: 'SF Mono', 'Monaco', monospace;
+  font-size: 0.85rem;
+  color: var(--text-tertiary);
+
+  background: var(--bg-secondary);
+}
+
+.rbc-time-view .rbc-day-slot .rbc-time-slot {
+  border-top: 1px solid var(--border-primary);
+}
+
+/* === Scroll personalizado === */
+.rbc-time-view {
+  scrollbar-color: var(--primary-green) var(--bg-tertiary);
+  scrollbar-width: thin;
+  overflow-y: auto;
+  max-height: 70vh;
+}
+
+.rbc-time-view::-webkit-scrollbar {
+  width: 8px;
+}
+
+.rbc-time-view::-webkit-scrollbar-track {
+  border-radius: var(--radius-sm);
+  background: var(--bg-tertiary);
+}
+
+.rbc-time-view::-webkit-scrollbar-thumb {
+  border: 2px solid var(--bg-tertiary);
+  border-radius: var(--radius-sm);
+  background: linear-gradient(135deg, var(--primary-green), var(--primary-green-hover));
+}
+
+.rbc-time-view::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, var(--primary-green-hover), var(--primary-green));
+}
+
+/* === Modal de Ant Design === */
+.ant-modal-content {
+  border: 1px solid var(--border-primary) !important;
+  border-radius: var(--radius-xl) !important;
+
+  background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-tertiary) 100%) !important;
+  backdrop-filter: blur(20px) !important;
+  box-shadow: var(--shadow-strong) !important;
+}
+
+.ant-modal-header {
+  position: relative !important;
+
+  padding: 24px 32px !important;
+  border-bottom: 2px solid var(--primary-green) !important;
+  border-radius: var(--radius-xl) var(--radius-xl) 0 0 !important;
+
+  text-align: center !important;
+
+  background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-tertiary) 100%) !important;
+}
+
+.ant-modal-header::after {
+  content: '';
+
+  position: absolute;
+  bottom: -2px;
+  left: 50%;
+  transform: translateX(-50%);
+
+  width: 100px;
+  height: 2px;
+
+  background: linear-gradient(90deg, transparent, var(--primary-green), transparent);
+}
+
+.ant-modal-title {
+  margin: 0 !important;
+
+  font-family: 'Inter', sans-serif !important;
+  font-size: 1.6rem !important;
+  font-weight: 700 !important;
+  color: var(--text-primary) !important;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3) !important;
+  letter-spacing: -0.02em !important;
+}
+
+.ant-modal-close {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+
+  width: 36px !important;
+  height: 36px !important;
+  border-radius: 50% !important;
+
+  color: var(--text-tertiary) !important;
+
+  background: rgba(255, 255, 255, 0.1) !important;
+  backdrop-filter: blur(10px) !important;
+
+  transition: all var(--transition-normal) !important;
+}
+
+.ant-modal-close:hover {
+  transform: scale(1.1) rotate(90deg) !important;
+  color: var(--text-primary) !important;
+  background: rgba(255, 255, 255, 0.2) !important;
+}
+
+.ant-modal-body {
+  padding: 32px !important;
+  font-family: 'Inter', sans-serif !important;
+  line-height: 1.6 !important;
+  color: var(--text-primary) !important;
+}
+
+.ant-modal-body p {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+
+  margin: 0 0 16px 0 !important;
+  padding: 12px 0 !important;
+  border-bottom: 1px solid var(--border-primary) !important;
+
+  transition: all var(--transition-fast) !important;
+}
+
+.ant-modal-body p:hover {
+  margin: 0 -16px 16px -16px !important;
+  padding: 12px 16px !important;
+  border-radius: var(--radius-sm) !important;
+  background: var(--primary-green-light) !important;
+}
+
+.ant-modal-body p:last-child {
+  margin-bottom: 0 !important;
+  border-bottom: none !important;
+}
+
+.ant-modal-body strong {
+  display: inline-block !important;
+
+  min-width: 140px !important;
+
+  font-size: 0.85rem !important;
+  font-weight: 600 !important;
+  color: var(--primary-green) !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.5px !important;
+}
+
+.ant-modal-mask {
+  background: rgba(0, 0, 0, 0.8) !important;
+  backdrop-filter: blur(8px) !important;
+}
+
+.ant-modal-body * {
+  color: var(--text-primary) !important;
+}
+
+/* === Animaciones adicionales === */
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.8; }
+}
+
+.rbc-event.rbc-event-allday {
+  animation: pulse 2s infinite;
+}
+
+/* === Responsive === */
+@media (max-width: 768px) {
+  .rbc-toolbar {
+    flex-direction: column;
+    gap: 16px;
+    padding: 16px;
+  }
+  
+  .rbc-toolbar-label {
+    font-size: 1.2rem;
+  }
+  
+  .rbc-agenda-view {
+    padding: 16px;
+  }
+  
+  .rbc-agenda-table th,
+  .rbc-agenda-table td {
+    padding: 12px 16px;
+    font-size: 0.85rem;
+  }
+}
+
+/* === Estados de loading === */
+.rbc-calendar.loading {
+  pointer-events: none;
+  opacity: 0.7;
+}
+
+.rbc-calendar.loading::after {
+  content: '';
+
+  position: absolute;
+  z-index: 1000;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  opacity: 0.8;
+  background: var(--bg-primary);
+}
+
+.pending-event {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  min-height: 24px;
+  border: none;
+  border-radius: 4px;
+
+  font-weight: bold;
+  color: #fff !important;
+
+  background-color: #FFA500 !important;
+}
+
+.confirmed-event {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  min-height: 24px;
+  border: none;
+  border-radius: 4px;
+
+  font-weight: bold;
+  color: #fff !important;
+
+  background-color: #4CAF50 !important;
+}
+
+/* Colores personalizados para eventos en la vista Agenda */
+.rbc-agenda-event-cell.pending-event,
+.rbc-agenda-event-cell.confirmed-event {
+  border-radius: 4px;
+  font-weight: bold;
+  color: #fff !important;
+  background-color: #4CAF50 !important;
+}

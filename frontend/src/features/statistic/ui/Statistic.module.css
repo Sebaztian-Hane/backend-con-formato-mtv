@@ -1,0 +1,396 @@
+/* Dashboard Container */
+.dashboardContainer {
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  width: 95%;
+  min-height: 100vh;
+  padding: 20px;
+
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  color: #f1f1f1;
+
+  background-color: #121212;
+}
+
+.filterBar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  align-items: center;
+
+  padding-bottom: 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.customDateButton {
+  border-color: #393939;
+  color: #f1f1f1;
+  background: #2a2a2a;
+  transition: all 0.3s ease;
+}
+
+.customDateButton:hover {
+  border-color: #1DB954;
+  color: #1DB954;
+  background: rgba(29, 185, 84, 0.1);
+}
+
+.datePicker {
+  border-color: #393939;
+  background: #2a2a2a;
+}
+
+.compactMetricsSection {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1.8fr;
+  gap: 15px;
+  height: 80px;
+}
+
+.smallMetricCard {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  height: 100%;
+  padding: 12px 16px; 
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+
+  background: linear-gradient(145deg, #1e1e1e 0%, #1a1a1a 50%, #161616 100%);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.smallMetricCard:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.metricTitle {
+  margin: 0 0 4px 0;
+
+  font-size: 10px;
+  font-weight: 600;
+  color: #9CA3AF;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.metricValue {
+  font-size: 20px; 
+  font-weight: 700;
+  line-height: 1;
+  color: #1DB954;
+  text-shadow: 0 0 5px rgba(29, 185, 84, 0.3);
+}
+
+.earningsCard {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  padding: 12px 20px; 
+  border: 1px solid rgba(29, 185, 84, 0.2);
+  border-radius: 10px;
+
+  background: linear-gradient(135deg, #1a2a3a 0%, #1e2a1e 50%, #121212 100%);
+  box-shadow: 0 4px 20px rgba(29, 185, 84, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.earningsCard:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 25px rgba(29, 185, 84, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.earningsValue {
+  margin: 2px 0;
+
+  font-size: 24px; 
+  font-weight: 700;
+  color: #1DB954;
+  text-shadow: 0 0 10px rgba(29, 185, 84, 0.3);
+}
+
+.earningsSubtitle {
+  margin: 0;
+  font-size: 9px;
+  color: #9CA3AF;
+  opacity: 0.8;
+}
+
+.mainChartSection {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+
+  min-height: 350px;
+  padding: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+
+  background: linear-gradient(145deg, #1e1e1e 0%, #1a1a1a 50%, #161616 100%);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+
+  transition: box-shadow 0.3s ease;
+}
+
+.mainChartSection:hover {
+  box-shadow: 0 6px 30px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+.chartHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.chartTitle {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+  color: #f1f1f1;
+}
+
+.chartSubtitle {
+  font-size: 12px;
+  font-weight: 500;
+  color: #9CA3AF;
+}
+
+.chartContainer {
+  flex: 1;
+  min-height: 280px;
+}
+
+
+.bottomSection {
+  display: grid;
+  grid-template-columns: 1fr 1.6fr;
+  gap: 20px;
+}
+
+.paymentSection, .therapistsSection {
+  padding: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+
+  background: linear-gradient(145deg, #1e1e1e 0%, #1a1a1a 50%, #161616 100%);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+
+  transition: box-shadow 0.3s ease;
+}
+
+.paymentSection:hover, .therapistsSection:hover {
+  box-shadow: 0 6px 30px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+.sectionTitle {
+  margin: 0 0 6px 0;
+  font-size: 16px;
+  font-weight: 600;
+  color: #f1f1f1;
+}
+
+.sectionSubtitle {
+  margin: 0 0 20px 0;
+  font-size: 12px;
+  font-weight: 500;
+  color: #9CA3AF;
+}
+
+.paymentChartContainer {
+  height: 280px;
+  margin-top: 20px;
+}
+
+/* Therapists Table Container */
+.therapistsTableContainer {
+  position: relative;
+
+  overflow-y: auto;
+
+  max-height: 320px;
+  margin-top: 20px;
+  border-radius: 8px;
+
+  background: #1a1a1a;
+}
+
+.therapistsTableContainer::before {
+  content: "";
+
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  right: 0;
+  left: 0;
+
+  height: 10px;
+
+  background: linear-gradient(to bottom, rgba(26, 26, 26, 1), rgba(26, 26, 26, 0));
+}
+
+.therapistsTableContainer::after {
+  content: "";
+
+  position: absolute;
+  z-index: 2;
+  right: 0;
+  bottom: 0;
+  left: 0;
+
+  height: 10px;
+
+  background: linear-gradient(to top, rgba(26, 26, 26, 1), rgba(26, 26, 26, 0));
+}
+
+.therapistsTable {
+  display: flex;
+  flex-direction: column;
+}
+
+.tableHeader {
+  position: sticky;
+  z-index: 1;
+  top: 0;
+
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+
+  padding: 14px 16px;
+  border-bottom: 2px solid rgba(29, 185, 84, 0.3);
+  border-radius: 8px 8px 0 0;
+
+  font-size: 11px;
+  font-weight: 600;
+  color: #9CA3AF;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+
+  background: linear-gradient(135deg, #2a2a2a 0%, #252525 100%);
+}
+
+.tableRow {
+  cursor: pointer;
+
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+
+  padding: 14px 16px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+
+  font-size: 12px;
+
+  transition: all 0.2s ease;
+}
+
+.evenRow {
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.oddRow {
+  background: rgba(255, 255, 255, 0.01);
+}
+
+.tableRow:hover {
+  transform: translateX(2px);
+  border-left: 3px solid #1DB954;
+  background: rgba(29, 185, 84, 0.15) !important;
+}
+
+.rating {
+  font-weight: 700;
+  color: #1DB954;
+  text-shadow: 0 0 5px rgba(29, 185, 84, 0.3);
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+  .bottomSection {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .compactMetricsSection {
+    grid-template-columns: 1fr;
+  }
+  
+  .filterBar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .earningsValue {
+    font-size: 24px;
+  }
+}
+
+.loadingContainer {
+  position: fixed;         
+  z-index: 9999;
+  top: 0;
+  left: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 84vw;           
+  height: 100vh;
+  margin-left: 16vw;       
+}
+
+.paymentChartContainer {
+  display: flex;
+  justify-content: center;
+
+  width: 100%;
+  max-width: 600px; 
+  margin: 0 auto;
+}
+
+.therapistsTableContainer {
+  overflow-x: hidden !important; 
+  width: 100%;
+}
+
+.tableHeader, .tableRow {
+  display: grid;
+  grid-template-columns: 2fr 80px 90px 70px; 
+  width: 100%;
+  min-width: 0; 
+}
+
+.tableHeader span, .tableRow span {
+  box-sizing: border-box;
+  padding: 0 8px;
+}
+
+.paymentChartContainer {
+  display: flex;
+  align-items: center;     
+  justify-content: center; 
+
+  width: 100%;
+  height: 100%;    
+  padding: 20px 0;      
+}
+
+.paymentSection {
+  display: flex;
+  flex-direction: column;
+  height: 100%;           
+}
+
+.paymentSection .apexcharts-canvas {
+  margin: 0 auto;        
+}

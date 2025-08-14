@@ -1,0 +1,59 @@
+/* components/Input/InputField.module.css */
+.inputWrapper {
+  display: flex;
+  align-items: center;
+}
+
+.inputStyle {
+  border-color: #444;
+  border-radius: 8px;
+  color: #ffffff;
+  background-color: #444444;
+}
+
+.icon {
+  cursor: pointer;
+  margin-left: 8px;
+  font-size: 20px;
+}
+
+/* Nuevos estilos para el PatientField */
+.patientRow {
+  width: 100%;
+  margin-top: 15px;
+  margin-bottom: 16px;
+}
+
+.patientContainer {
+  display: flex;
+  gap: 10px;
+  align-items: flex-end;
+  width: 100%;
+}
+
+.patientInputContainer {
+  flex: 1;
+}
+
+.patientButtonContainer {
+  margin-bottom: -26px;
+}
+
+.patientButton {
+  height: 32px;
+  border-color: #00b96b;
+  white-space: nowrap;
+  background-color: #00b96b;
+}
+
+.checkboxColumn {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: -26px;
+  margin-left: 2px; /* Aquí definimos los 2px de separación */
+}
+
+.checkboxItem {
+  margin-bottom: 0px;
+  margin-left: 2px;
+}

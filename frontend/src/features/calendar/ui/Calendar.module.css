@@ -1,0 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+
+.calendarContainer {
+  display: flex;
+
+  width: 100%; /* Asegura que ocupe todo el ancho disponible */
+  height: 90vh;
+
+  font-family: 'Poppins', sans-serif;
+
+  background: #0c0c0c;
+}
+
+
+
+/* Contenedor principal del calendario */
+.mainContent {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  width: calc(100% - 220px); /* ajusta según el ancho del sidebar */
+}
+
+/* Calendario en sí */
+.calendarWrapper {
+  overflow-x: auto; /* Por si se desborda horizontalmente */
+  flex: 1;
+
+  padding: 20px;
+  border-radius: 10px;
+
+  background-color: #121212;
+}
+

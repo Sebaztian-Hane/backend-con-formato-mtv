@@ -1,0 +1,1 @@
+# Appointment Statuses Django app 

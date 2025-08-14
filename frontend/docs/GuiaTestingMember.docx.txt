@@ -1,0 +1,169 @@
+Guía de Testing para Usuarios – Rol "Member"
+
+--------------------------------------------------
+
+# Guía de Testing para Usuarios – Rol "Member"
+
+## ¿Qué es el Testing y por qué es importante?
+
+El **testing** es el proceso de probar una aplicación para identificar errores, problemas de usabilidad y oportunidades de mejora antes de su lanzamiento definitivo. Su objetivo es asegurar que el sistema funcione correctamente, sea fácil de usar y cumpla con las necesidades de los usuarios.
+
+**¿Por qué es importante?**
+- Permite detectar errores antes de que lleguen a los usuarios finales.
+- Mejora la calidad y la experiencia de usuario.
+- Asegura que las funcionalidades principales estén disponibles y sean seguras.
+- Recoge sugerencias para futuras mejoras.
+
+--------------------------------------------------
+
+## ¿Qué puede hacer un usuario con rol "member"?
+
+Como usuario con rol "member", tendrás acceso a las funcionalidades principales del sistema, pero no a las configuraciones avanzadas reservadas para administradores. A continuación, se detalla cada acción que puedes realizar y cómo hacerlo paso a paso.
+
+--------------------------------------------------
+
+### 1. Iniciar sesión
+
+1. Accede a la página principal del sistema.
+2. Ingresa tu usuario y contraseña proporcionados.
+3. Haz clic en "Iniciar sesión".
+4. Si es tu primer acceso, deberás cambiar tu contraseña.
+
+--------------------------------------------------
+
+### 2. Navegar por el sistema
+
+Una vez dentro, verás un menú lateral con las siguientes secciones principales:
+
+- **Inicio**: Vista general y accesos rápidos.
+- **Pacientes**: Gestión de pacientes.
+- **Citas**: Gestión de citas.
+- **Calendario**: Visualización de citas en formato calendario.
+- **Reportes**: Generación y descarga de reportes.
+- **Citas Completadas**: Historial de citas finalizadas.
+- **Estadísticas**: Visualización de métricas y gráficos.
+- **Terapeutas**: Consulta de información de terapeutas.
+- **Perfil**: Modificación de tus datos personales.
+
+--------------------------------------------------
+
+### 3. Gestión de Pacientes
+
+#### ¿Cómo registrar un nuevo paciente? (Ejemplo paso a paso)
+
+1. En el menú lateral, haz clic en **"Pacientes"**.
+2. Haz clic en el botón **"Registrar Paciente"**.
+3. Se abrirá un formulario. Completa los siguientes campos:
+   - Nombre(s) y apellidos del paciente.
+   - Tipo y número de documento.
+   - Fecha de nacimiento.
+   - Teléfono y correo electrónico (si aplica).
+   - Dirección y otros datos relevantes.
+4. Revisa que los datos sean correctos.
+5. Haz clic en **"Guardar"** o **"Registrar"**.
+6. Si el registro es exitoso, el paciente aparecerá en la lista.
+
+**Ejemplo:**
+- Nombre: Juan Pérez García
+- Documento: DNI 12345678
+- Fecha de nacimiento: 15/05/1980
+- Teléfono: 987654321
+- Dirección: Av. Siempre Viva 123
+
+--------------------------------------------------
+
+### 4. Gestión de Citas
+
+#### ¿Cómo registrar una nueva cita? (Ejemplo paso a paso)
+
+1. En el menú lateral, haz clic en **"Citas"**.
+2. Haz clic en el botón **"Registrar Cita"**.
+3. Se abrirá un formulario. Completa los siguientes campos:
+   - Selecciona el **paciente** (puedes buscarlo por nombre o documento).
+   - Selecciona el **terapeuta** que atenderá la cita.
+   - Elige la **fecha** y **hora** de la cita.
+   - (Opcional) Agrega una nota o motivo de la cita.
+4. Revisa que la información sea correcta.
+5. Haz clic en **"Guardar"** o **"Registrar"**.
+6. La cita aparecerá en el listado y en el calendario.
+
+**Ejemplo:**
+- Paciente: Juan Pérez García
+- Terapeuta: María López
+- Fecha: 20/06/2024
+- Hora: 10:00 am
+- Motivo: Sesión de fisioterapia
+
+--------------------------------------------------
+
+### 5. Calendario
+
+- Visualiza todas las citas en formato calendario.
+- Puedes filtrar por fechas y ver detalles de cada cita haciendo clic sobre ella.
+
+--------------------------------------------------
+
+### 6. Reportes
+
+- Accede a la sección "Reportes".
+- Puedes generar y descargar diferentes tipos de reportes, como:
+  - Reporte diario de terapeutas.
+  - Pacientes por terapeuta.
+  - Reporte de caja diario.
+  - Citas por rango de fechas.
+- Selecciona el tipo de reporte, elige la fecha o rango y haz clic en "Generar".
+
+--------------------------------------------------
+
+### 7. Citas Completadas
+
+- Consulta el historial de citas que ya han sido atendidas o finalizadas.
+
+--------------------------------------------------
+
+### 8. Estadísticas
+
+- Visualiza gráficos y métricas sobre la actividad del centro (citas, pacientes, ingresos, etc.).
+
+--------------------------------------------------
+
+### 9. Terapeutas
+
+- Consulta la información de los terapeutas registrados en el sistema.
+
+--------------------------------------------------
+
+### 10. Perfil de Usuario
+
+- Accede a "Perfil" para ver y modificar tus datos personales.
+- Puedes cambiar tu contraseña desde esta sección.
+
+--------------------------------------------------
+
+## ¿Qué debes hacer durante el testing?
+
+1. **Explora todas las secciones a las que tienes acceso.**
+2. **Realiza las acciones descritas arriba** (registrar, editar, buscar, generar reportes, etc.).
+3. **Toma nota de cualquier error, lentitud, mensaje confuso o comportamiento inesperado.**
+4. **Si encuentras un problema:**
+   - Describe qué estabas haciendo.
+   - Anota los pasos para reproducir el error.
+   - Adjunta una captura de pantalla si es posible.
+5. **Sugiere mejoras** si crees que algo puede ser más claro o fácil de usar.
+
+--------------------------------------------------
+
+## ¿Dónde reportar los problemas?
+
+- Utiliza el tablero de Trello proporcionado para crear una tarjeta por cada error o sugerencia.
+- Incluye:
+  - Descripción clara del problema.
+  - Pasos para reproducirlo.
+  - Captura de pantalla (opcional).
+  - Tu nombre o correo.
+
+--------------------------------------------------
+
+## ¡Gracias por tu colaboración!
+
+Tu participación es fundamental para mejorar el sistema y ofrecer una mejor experiencia a todos los usuarios. 

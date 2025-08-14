@@ -1,0 +1,60 @@
+:root {
+    /* Colores de fondo y texto principales */
+    --color-background-primary: #FFFFFF; /* Fondo principal */
+    --color-text-primary: #333333; /* Texto principal */
+    --color-background-secondary: #000000; /* Fondo secundario */
+    --color-text-secondary: #AAAAAA; /* Texto secundario */
+  
+    /* Colores de acento y botones */
+    --color-accent-primary: #1E050E; /* Color de acento principal */
+    --color-button-primary: #1E1E1E; /* Color de botón principal */
+    --color-button-secondary: #444444; /* Color de botón secundario */
+    --color-button-tertiary: #252525; /* Color de botón terciario */
+    --color-button-quaternary: #1D8954; /* Color de botón cuaternario */
+    --color-button-quinary: #0066FF; /* Color de botón quinario */
+    --color-button-senary: #1C854A; /* Color de botón senario */
+  
+    /* Colores de elementos interactivos */
+    --color-interactive-primary: #00AA55; /* Color interactivo principal */
+    --color-interactive-secondary: #2A2A2A; /* Color interactivo secundario */
+    --color-interactive-tertiary: #FF3333; /* Color interactivo terciario */
+  
+    /* Colores de bordes y sombras */
+    --color-border-primary: #6B7280; /* Color de borde principal */
+    --color-border-secondary: #263238; /* Color de borde secundario */
+    --color-shadow-primary: #3A3A3A; /* Color de sombra principal */
+  
+    /* Colores de elementos de navegación */
+    --color-nav-primary: #099999; /* Color de navegación principal */
+    --color-nav-secondary: #121212; /* Color de navegación secundario */
+    --color-nav-tertiary: #555555; /* Color de navegación terciario */
+  
+    /* Colores de elementos de tabla */
+    --color-table-header: #69276F; /* Color de encabezado de tabla */
+    --color-table-row: #8800CC; /* Color de fila de tabla */
+  
+    /* Colores de elementos de tarjeta */
+    --color-card-background: #108981; /* Fondo de tarjeta */
+    --color-card-text: #129A87E; /* Texto de tarjeta */
+    --color-card-accent: #272727; /* Acento de tarjeta */
+  
+    /* Colores de elementos de alerta */
+    --color-alert-primary: #3498D8; /* Color de alerta principal */
+    --color-alert-secondary: #E74C3C; /* Color de alerta secundario */
+    --color-alert-tertiary: #F39C12; /* Color de alerta terciario */
+  
+    /* Colores de elementos de formulario */
+    --color-form-background: #2D3748; /* Fondo de formulario */
+    --color-form-text: #FFFDFD; /* Texto de formulario */
+    --color-form-accent: #1A1A1A; /* Acento de formulario */
+  
+    /* Colores de elementos de pie de página */
+    --color-footer-background: #1B7648; /* Fondo de pie de página */
+    --color-footer-text: #E2E8F0; /* Texto de pie de página */
+    --color-footer-accent: #969696; /* Acento de pie de página */
+  
+    /* Colores de elementos de encabezado */
+    --color-header-background: #1E050E0; /* Fondo de encabezado */
+    --color-header-text: #1E1E1E; /* Texto de encabezado */
+    --color-header-accent: #444444; /* Acento de encabezado */
+  }

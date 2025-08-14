@@ -1,0 +1,148 @@
+.container {
+    flex: 1;
+
+    box-sizing: border-box; 
+    width: 100%;
+    min-width: 360px; 
+    padding: clamp(15px, 3vw, 25px);
+    border-radius: 20px;
+
+    color: white;
+
+    background-color: #1E1E1E;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.title {
+    margin-bottom: 20px;
+    font-size: clamp(1.2rem, 2.5vw, 1.6rem);
+    font-weight: bold;
+    color: #FFFFFF;
+}
+
+.scrollArea {
+    scrollbar-width: none;
+
+    overflow-y: auto;
+
+    box-sizing: border-box;
+    min-height: 200px; 
+    max-height: 200px;
+
+    -ms-overflow-style: none;
+}
+
+.scrollArea::-webkit-scrollbar {
+    display: none;
+}
+
+.loadingContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 200px; 
+}
+
+.appointment {
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    box-sizing: border-box;
+    min-width: 0; 
+    margin-bottom: 0.5rem;
+    padding: 0.75rem 1rem;
+    border-left: 3px solid transparent;
+    border-radius: 12px;
+
+    background-color: #2A2A2A;
+
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.appointment:hover {
+    transform: translateY(-2px);
+    border-left-color: #00C36A;
+    background-color: #333333;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.appointment:active {
+    transform: translateY(0);
+}
+
+.appointmentContent {
+    overflow: hidden;
+    flex: 1;
+    min-width: 0; 
+}
+
+.name {
+    overflow: hidden;
+
+    margin-bottom: 0.15rem;
+
+    font-size: 0.95rem; 
+    font-weight: 600;
+    color: #FFFFFF;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.details {
+    overflow: hidden;
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+
+    font-size: 0.96rem; 
+    color: #AAAAAA;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.check {
+    flex-shrink: 0;
+    color: #00C36A;
+    transition: transform 0.2s ease;
+}
+
+.check svg {
+    width: 22px; 
+    height: 22px; 
+}
+
+.appointment:hover .check {
+    transform: scale(1.05);
+}
+
+.emptyState {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    box-sizing: border-box;
+    height: 200px; 
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .appointment {
+        padding: 0.65rem 0.85rem;
+    }
+    
+    .name {
+        font-size: 0.8rem;
+    }
+    
+    .details {
+        font-size: 0.65rem;
+    }
+    
+    .check svg {
+        width: 20px;
+        height: 20px;
+    }
+}

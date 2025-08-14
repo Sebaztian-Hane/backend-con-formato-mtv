@@ -1,0 +1,11 @@
+[
+  {"model": "ubigeo.region", "pk": 1, "fields": {"name": "Lima"}},
+  {"model": "ubigeo.region", "pk": 2, "fields": {"name": "Arequipa"}},
+  {"model": "ubigeo.province", "pk": 1, "fields": {"name": "Lima", "region": 1}},
+  {"model": "ubigeo.province", "pk": 2, "fields": {"name": "Cañete", "region": 1}},
+  {"model": "ubigeo.province", "pk": 3, "fields": {"name": "Arequipa", "region": 2}},
+  {"model": "ubigeo.district", "pk": 1, "fields": {"name": "Miraflores", "province": 1}},
+  {"model": "ubigeo.district", "pk": 2, "fields": {"name": "San Isidro", "province": 1}},
+  {"model": "ubigeo.district", "pk": 3, "fields": {"name": "Asia", "province": 2}},
+  {"model": "ubigeo.district", "pk": 4, "fields": {"name": "Arequipa", "province": 3}}
+]
