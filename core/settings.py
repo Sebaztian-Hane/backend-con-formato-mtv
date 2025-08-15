@@ -43,6 +43,9 @@ INSTALLED_APPS = [
     'rooms',
     'statuses',
     'tickets',
+    'patients',
+    'therapists',
+    'ubigeo',
 ]
 
 MIDDLEWARE = [
