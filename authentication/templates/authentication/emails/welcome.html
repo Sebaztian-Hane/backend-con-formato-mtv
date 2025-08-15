@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bienvenido a {{ site_name }}</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .header {
+            background-color: #007bff;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            border-radius: 5px 5px 0 0;
+        }
+        .content {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 0 0 5px 5px;
+        }
+        .button {
+            display: inline-block;
+            background-color: #28a745;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            margin: 10px 0;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 20px;
+            color: #666;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>¡Bienvenido a {{ site_name }}!</h1>
+    </div>
+    
+    <div class="content">
+        <h2>Hola {{ user.first_name|default:user.username }},</h2>
+        
+        <p>¡Gracias por registrarte en {{ site_name }}! Tu cuenta ha sido creada exitosamente.</p>
+        
+        <p><strong>Detalles de tu cuenta:</strong></p>
+        <ul>
+            <li><strong>Email:</strong> {{ user.email }}</li>
+            <li><strong>Usuario:</strong> {{ user.username }}</li>
+            <li><strong>Fecha de registro:</strong> {{ user.date_joined|date:"d/m/Y H:i" }}</li>
+        </ul>
+        
+        <p>Ya puedes comenzar a usar nuestra plataforma. Si tienes alguna pregunta, no dudes en contactarnos.</p>
+        
+        <p>¡Disfruta tu experiencia en {{ site_name }}!</p>
+        
+        <p>Saludos,<br>El equipo de {{ site_name }}</p>
+    </div>
+    
+    <div class="footer">
+        <p>Este email fue enviado automáticamente. Por favor, no respondas a este mensaje.</p>
+        <p>&copy; 2024 {{ site_name }}. Todos los derechos reservados.</p>
+    </div>
+</body>
+</html> 
