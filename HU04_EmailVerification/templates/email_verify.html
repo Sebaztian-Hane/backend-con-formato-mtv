@@ -1,0 +1,54 @@
+<!-- templates/email_verify.html -->
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <title>Verificación de correo</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <style>
+    body { font-family: Arial, sans-serif; max-width:700px; margin:40px auto; padding:0 20px; }
+    .box { border:1px solid #ddd; padding:18px; border-radius:8px; margin-bottom:18px; }
+    .success { color: green; }
+    .error { color: red; }
+    label, input { display:block; width:100%; margin-bottom:8px; }
+    button { padding:10px 16px; }
+  </style>
+</head>
+<body>
+  <h1>Verificación de correo</h1>
+
+  {% if messages %}
+    <ul>
+      {% for msg in messages %}
+        <li class="{{ msg.tags }}">{{ msg }}</li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+
+  <div class="box">
+    <h3>1) Enviar código al correo</h3>
+    <form method="post">
+      {% csrf_token %}
+      <input type="hidden" name="action" value="send" />
+      <label for="email_send">Correo</label>
+      <input id="email_send" name="email" placeholder="correo@ejemplo.com" required />
+      <button type="submit">Enviar código</button>
+    </form>
+  </div>
+
+  <div class="box">
+    <h3>2) Validar código</h3>
+    <form method="post">
+      {% csrf_token %}
+      <input type="hidden" name="action" value="verify" />
+      <label for="email_verify">Correo</label>
+      <input id="email_verify" name="email" placeholder="correo@ejemplo.com" required />
+      <label for="code">Código</label>
+      <input id="code" name="code" placeholder="123456" required />
+      <button type="submit">Verificar</button>
+    </form>
+  </div>
+
+  <p>Nota: esto es una interfaz de demo. En producción las acciones deben requerir autenticación.</p>
+</body>
+</html>
