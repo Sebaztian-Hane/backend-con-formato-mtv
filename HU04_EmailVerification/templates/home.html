@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Verificar código</title>
+
+<style>
+  :root{
+    --bg:#f1f6fb; --card:#fff; --accent:#2d8cf0; --muted:#9aa7bf;
+    --success:#0f8a4a; --danger:#b93030;
+  }
+  html,body{height:100%;margin:0;font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;}
+  body{background:linear-gradient(180deg, #f7fbff 0%, var(--bg) 100%);display:flex;align-items:center;justify-content:center;padding:36px;}
+  .card{width:100%;max-width:720px;background:var(--card);border-radius:12px;padding:28px;box-shadow:0 8px 30px rgba(20,30,60,0.06);}
+  h1{margin:0 0 12px;font-size:22px;color:#0f1724}
+  p.lead{margin:0 0 18px;color:var(--muted)}
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  label{display:block;font-size:13px;color:#344055;margin-bottom:6px}
+  input[type="email"], input[type="text"]{width:100%;padding:10px 12px;border-radius:8px;border:1px solid #e6edf6;background:#f9fbff}
+  button{background:var(--accent);color:#fff;border:0;padding:10px 16px;border-radius:10px;cursor:pointer;box-shadow:0 6px 18px rgba(45,140,240,0.14)}
+  button.secondary{background:#eef3fb;color:var(--accent);box-shadow:none;border:1px solid #dbe9ff}
+  .row{display:flex;gap:10px;align-items:center}
+  .status{margin-top:14px;padding:10px;border-radius:8px;display:none}
+  .status.success{background:#e6fbf1;color:var(--success);border:1px solid rgba(15,138,74,0.12)}
+  .status.error{background:#fff0f0;color:var(--danger);border:1px solid rgba(185,48,48,0.12)}
+  #verifiedBox{display:none;margin-top:18px;padding:14px;border-radius:8px;background:linear-gradient(90deg,#f0fbf6,#eaf6ff);border:1px solid #e6f6f0}
+  .muted{color:var(--muted);font-size:13px}
+  .center{display:flex;justify-content:center}
+</style>
+</head>
+<body>
+  <div class="card" role="main" aria-live="polite">
+    <h1>Verificar código</h1>
+    <p class="lead">Introduce el correo y el código que recibiste para validar tu cuenta.</p>
+
+    <!-- Enviar código -->
+    <div style="margin-bottom:18px">
+      <label for="emailSend">Correo</label>
+      <div class="row">
+        <input id="emailSend" type="email" placeholder="tu@correo.com" />
+        <button id="btnSend">Enviar código</button>
+      </div>
+      <div id="sendStatus" class="status"></div>
+    </div>
+
+    <hr style="border:none;border-top:1px solid #eef4fb;margin:18px 0">
+
+    <!-- Verificar -->
+    <div>
+      <label for="emailVerify">Email</label>
+      <input id="emailVerify" type="email" placeholder="tu@correo.com" />
+
+      <label for="codeVerify" style="margin-top:12px">Código</label>
+      <input id="codeVerify" type="text" placeholder="123456" />
+
+      <div style="display:flex;gap:10px;margin-top:12px;align-items:center">
+        <button id="btnVerify">Verificar código</button>
+        <button id="btnClear" class="secondary">Limpiar</button>
+      </div>
+      <div id="verifyStatus" class="status"></div>
+
+      <div id="verifiedBox">
+        <strong>✅ Cuenta verificada</strong>
+        <div class="muted">Gracias. Tu cuenta ha sido verificada correctamente.</div>
+      </div>
+    </div>
+  </div>
+
+<script>
+/* URLs de la API - ajusta si tus rutas son diferentes */
+const SEND_URL = "/api/auth/send-verify-email/";
+const VERIFY_URL = "/api/auth/verify-email/";
+
+/* helpers */
+const $ = id => document.getElementById(id);
+const show = (el, msg, type="success") => {
+  el.className = "status " + (type==="error" ? "error" : "success");
+  el.textContent = msg;
+  el.style.display = "block";
+};
+const hide = el => { el.style.display = "none"; el.textContent = ""; };
+
+/* Envía datos como form-urlencoded (request.POST en Django) */
+async function postForm(url, obj){
+  try{
+    const params = new URLSearchParams();
+    for(const k in obj) params.append(k, obj[k]);
+    const res = await fetch(url, {
+      method: "POST",
+      body: params,
+      credentials: "same-origin",
+    });
+    const text = await res.text();
+    // intentar parsear JSON defensivamente
+    let data;
+    try { data = JSON.parse(text); } catch(e){ data = { success: res.ok, message: text || (res.ok ? "OK":"Error") }; }
+    return { ok: res.ok, data };
+  }catch(e){
+    return { ok:false, data:{ success:false, message: e.message || "Error de red" } };
+  }
+}
+
+/* Enviar código */
+$("btnSend").addEventListener("click", async () => {
+  const email = $("emailSend").value.trim();
+  const st = $("sendStatus");
+  hide(st);
+  if(!email){ show(st, "El correo es obligatorio.", "error"); return; }
+
+  $("btnSend").disabled = true;
+  $("btnSend").textContent = "Enviando...";
+  const r = await postForm(SEND_URL, { email });
+  $("btnSend").disabled = false;
+  $("btnSend").textContent = "Enviar código";
+
+  if(r.ok && (r.data.success === true || r.data.message)){
+    // backend puede devolver {message: "..."} o {success: true, message: "..."}
+    show(st, r.data.message || "Código enviado.", "success");
+    // Autollenar campo email de verificación
+    $("emailVerify").value = email;
+  } else {
+    // r.data puede venir con structure diferente
+    const msg = r.data.message || r.data.error || "Error al enviar el código.";
+    show(st, msg, "error");
+  }
+});
+
+/* Verificar código */
+$("btnVerify").addEventListener("click", async () => {
+  const email = $("emailVerify").value.trim();
+  const code  = $("codeVerify").value.trim();
+  const st = $("verifyStatus");
+  hide(st);
+
+  if(!email || !code){ show(st, "Email y código obligatorios.", "error"); return; }
+
+  $("btnVerify").disabled = true;
+  $("btnVerify").textContent = "Verificando...";
+  const r = await postForm(VERIFY_URL, { email, code });
+  $("btnVerify").disabled = false;
+  $("btnVerify").textContent = "Verificar código";
+
+  // acepta varias formas de respuesta: {success: True, message: "..."} ó {message: "..."}
+  const ok = r.ok && (r.data.success === true || /verifi|valid/i.test(r.data.message || ""));
+  if(ok){
+    show(st, r.data.message || "Código válido.", "success");
+    // mostrar caja verificado y ocultar formularios si quieres:
+    $("verifiedBox").style.display = "block";
+    // opcional: limpiar inputs
+    // $("codeVerify").value = "";
+  } else {
+    const msg = r.data.message || r.data.error || "Código inválido o expirado.";
+    show(st, msg, "error");
+  }
+});
+
+/* Limpiar formulario */
+$("btnClear").addEventListener("click", () => {
+  $("emailSend").value = "";
+  $("emailVerify").value = "";
+  $("codeVerify").value = "";
+  hide($("sendStatus"));
+  hide($("verifyStatus"));
+  $("verifiedBox").style.display = "none";
+});
+</script>
+</body>
+</html>
