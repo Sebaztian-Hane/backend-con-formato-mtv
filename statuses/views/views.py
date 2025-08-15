@@ -1,9 +1,4 @@
-from django.shortcuts import render
-
-# Create your views here.
-from rest_framework import viewsets, status
-from rest_framework.response import Response
-
+from rest_framework import viewsets
 from models.models import Status
 from serializers.serializers import (
     StatusSerializer,
@@ -17,8 +12,6 @@ from services.services import StatusService
 class StatusViewSet(viewsets.ModelViewSet):
     queryset = Status.objects.filter(deleted_at__isnull=True)
     serializer_class = StatusListSerializer
-
-
 
     def get_serializer_class(self):
         if self.action == 'create':

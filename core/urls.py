@@ -1,22 +1,24 @@
 """
-URL configuration for core project.
-
-The `urlpatterns` list routes URLs to views. For more information please see:
-    https://docs.djangoproject.com/en/5.2/topics/http/urls/
-Examples:
-Function views
-    1. Add an import:  from my_app import views
-    2. Add a URL to urlpatterns:  path('', views.home, name='home')
-Class-based views
-    1. Add an import:  from other_app.views import Home
-    2. Add a URL to urlpatterns:  path('', Home.as_view(), name='home')
-Including another URLconf
-    1. Import the include() function: from django.urls import include, path
-    2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
+URL configuration for appointments project.
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
+from document_types import DocumentTypeList
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
+    path('api/document-types', DocumentTypeList.as_view()),
     path('admin/', admin.site.urls),
+    path('api/appointments/', include('appointments.urls')),
+    path('api/appointment-statuses/', include('appointment_statuses.urls')),
+    path('api/tickets/', include('tickets.urls')),
+    path('api/rooms/', include('rooms.urls')),
+    path('api/patients/', include('patients.urls')),
+    path('api/ubigeo/', include('ubigeo.urls')),
 ]
+
+# Serve static and media files in development
+if settings.DEBUG:
+    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) 

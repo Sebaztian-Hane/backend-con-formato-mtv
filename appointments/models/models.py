@@ -1,4 +1,3 @@
-# Create your models here.
 from django.db import models
 from django.core.validators import MinValueValidator
 from django.utils import timezone
