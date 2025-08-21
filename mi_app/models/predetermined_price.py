@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils import timezone
 
 class PredeterminedPrice(models.Model):
     name = models.CharField(
@@ -9,6 +10,15 @@ class PredeterminedPrice(models.Model):
 
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
+    deleted_at = models.DateTimeField(blank=True, null=True)  # Nuevo campo
+
+    def soft_delete(self):
+        self.deleted_at = timezone.now()
+        self.save(update_fields=["deleted_at"])
+
+    def restore(self):
+        self.deleted_at = None
+        self.save(update_fields=["deleted_at"])
 
     def __str__(self):
         return f"{self.name} - {self.price}"
